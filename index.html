@@ -125,92 +125,9 @@
         <p>Maybe today is the perfect moment to say... could we start as friends? 😊</p>
         <div class="love">❤️</div>
 
-        <button onclick="showChat()">Let's Talk</button>
+        <button onclick="window.location.href='https://wa.me/8683948560'">Let's Talk</button>
 
-        <div class="chat-box" id="chatBox"></div>
-        <div class="input-box" id="inputBox">
-            <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyC5JlKVhuArr856ufXEh6q2FOtRNLgQ4xM",
-            authDomain: "love-3ea1f.firebaseapp.com",
-            projectId: "love-3ea1f",
-            storageBucket: "love-3ea1f.firebasestorage.app",
-            messagingSenderId: "326531694164",
-            appId: "1:326531694164:web:1c4a88a3c2187139bcb7c1",
-            measurementId: "G-8045X8P87K"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        // Show the chat box and input box
-        function showChat() {
-            document.getElementById("chatBox").style.display = "block";
-            document.getElementById("inputBox").style.display = "block";
-            loadMessages();
-        }
-
-        // Send message to Firebase
-        function sendMessage() {
-            let messageInput = document.getElementById("messageInput");
-            let message = messageInput.value.trim(); // Use trim() to remove unnecessary spaces
-            if (message !== "") {
-                let timeStamp = new Date().toLocaleString();
-                let newMessage = `<div class="message user"><p><strong>You:</strong> ${message}</p><span>${timeStamp}</span></div>`;
-
-                // Save the message to Firebase
-                database.ref('messages').push({
-                    message: message,
-                    timeStamp: timeStamp
-                })
-                .then(() => {
-                    // After message is successfully saved, show it in the chat box
-                    let chatBox = document.getElementById("chatBox");
-                    chatBox.innerHTML += newMessage;
-                    chatBox.scrollTop = chatBox.scrollHeight;
-                    messageInput.value = ""; // Clear input field after sending
-                })
-                .catch((error) => {
-                    console.error("Error sending message: ", error);
-                });
-            }
-        }
-
-        // Handle Enter key press to send message
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                event.preventDefault(); // Prevent default Enter behavior (form submission)
-                sendMessage();
-            }
-        }
-
-        // Load messages from Firebase
-        function loadMessages() {
-            let chatBox = document.getElementById("chatBox");
-            chatBox.innerHTML = ""; // Clear chat box before loading new messages
-            database.ref('messages').on('value', (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
-                    let message = childSnapshot.val().message;
-                    let timeStamp = childSnapshot.val().timeStamp;
-                    let newMessage = `<div class="message other"><p><strong>Someone:</strong> ${message}</p><span>${timeStamp}</span></div>`;
-                    chatBox.innerHTML += newMessage;
-                });
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, (error) => {
-                console.error("Error loading messages: ", error);
-            });
-        }
-    </script>
+        
 </body>
 </html>
