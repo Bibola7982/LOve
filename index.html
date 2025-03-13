@@ -3,166 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Chat</title>
+    <title>My Feelings for You, Suhani ❤️</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        .chat-container {
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .chat-box {
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ccc;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-
-        .input-box {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .input-box input {
-            width: 80%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .input-box button {
-            padding: 10px 20px;
-            background-color: #007bff;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
             color: white;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 100%;
+            width: 500px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffe4e1;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .love {
+            font-size: 3em;
+            color: #ff3d67;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 61, 103, 0.8); }
+            to { text-shadow: 0 0 20px rgba(255, 61, 103, 1); }
+        }
+        button {
+            padding: 12px 25px;
             border: none;
-            border-radius: 5px;
+            background: #ff3d67;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 30px;
             cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
         }
-
+        button:hover {
+            background-color: #ff5c87;
+        }
+        .chat-box {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            color: black;
+            max-width: 100%;
+            text-align: left;
+            height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .input-box {
+            margin-top: 10px;
+            display: none;
+        }
+        .input-box input {
+            width: 70%;
+            padding: 12px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        .input-box button {
+            padding: 12px 20px;
+            border: none;
+            background: #ff3d67;
+            color: white;
+            font-size: 1em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
         .input-box button:hover {
-            background-color: #0056b3;
+            background-color: #ff5c87;
         }
-
         .message {
-            margin: 5px 0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            background-color: #f4f4f4;
         }
-
-        .user-message {
-            color: blue;
-        }
-
-        .bot-message {
-            color: green;
-        }
-
         .message span {
-            font-size: 0.8em;
-            color: #888;
+            font-size: 0.9em;
+            color: gray;
+        }
+        .message.user {
+            background-color: #ffebeb;
+            text-align: right;
+        }
+        .message.other {
+            background-color: #e6f2ff;
+            text-align: left;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>💕 Suhani,  💕 Happy Birthday Miss  💕</h1>
+        <p>Every moment since I saw you, my heart has held a feeling I cannot ignore.</p>
+        <p>You might not know, but I admire you from afar, cherishing every glimpse, every smile.</p>
+        <p>Maybe today is the perfect moment to say... could we start as friends? 😊</p>
+        <div class="love">❤️</div>
 
-<div class="chat-container">
-    <h2>Live Chat</h2>
-    <div id="chatBox" class="chat-box"></div>
-    <div class="input-box">
-        <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
-    </div>
-</div>
+        <button onclick="window.location.href='https://wa.me/8683948560'">Let's Talk</button>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
 
-<script>
-    // Your Firebase configuration
-    const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-        databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_PROJECT_ID.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-
-    // Function to send a message
-    function sendMessage() {
-        const messageInput = document.getElementById("messageInput");
-        const message = messageInput.value.trim();
         
-        if (message !== "") {
-            const timeStamp = new Date().toLocaleString();
-            const newMessage = {
-                message: message,
-                timeStamp: timeStamp,
-                sender: "user"
-            };
-
-            // Save message to Firebase
-            database.ref('messages').push(newMessage).then(() => {
-                messageInput.value = "";
-            }).catch((error) => {
-                console.error("Error sending message: ", error);
-            });
-        }
-    }
-
-    // Function to handle pressing "Enter" key to send message
-    function handleKeyPress(event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            sendMessage();
-        }
-    }
-
-    // Function to load messages from Firebase
-    function loadMessages() {
-        const chatBox = document.getElementById("chatBox");
-
-        // Listen to changes in Firebase database
-        database.ref('messages').on('child_added', function(snapshot) {
-            const messageData = snapshot.val();
-            const newMessage = document.createElement("div");
-            newMessage.classList.add("message");
-
-            if (messageData.sender === "user") {
-                newMessage.classList.add("user-message");
-                newMessage.innerHTML = `<strong>You:</strong> ${messageData.message} <span>${messageData.timeStamp}</span>`;
-            } else {
-                newMessage.classList.add("bot-message");
-                newMessage.innerHTML = `<strong>Bot:</strong> ${messageData.message} <span>${messageData.timeStamp}</span>`;
-            }
-
-            chatBox.appendChild(newMessage);
-            chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the bottom
-        });
-    }
-
-    // Load the initial messages
-    loadMessages();
-</script>
-
 </body>
 </html>
