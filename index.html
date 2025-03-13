@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Feelings for You, Suhani ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: white;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 100%;
+            width: 500px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffe4e1;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .love {
+            font-size: 3em;
+            color: #ff3d67;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 61, 103, 0.8); }
+            to { text-shadow: 0 0 20px rgba(255, 61, 103, 1); }
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            background: #ff3d67;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #ff5c87;
+        }
+        .chat-box {
+            display: none;
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            color: black;
+            max-width: 100%;
+            text-align: left;
+            height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .input-box {
+            margin-top: 10px;
+            display: none;
+        }
+        .input-box input {
+            width: 70%;
+            padding: 12px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+        }
+        .input-box button {
+            padding: 12px 20px;
+            border: none;
+            background: #ff3d67;
+            color: white;
+            font-size: 1em;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .input-box button:hover {
+            background-color: #ff5c87;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            background-color: #f4f4f4;
+        }
+        .message span {
+            font-size: 0.9em;
+            color: gray;
+        }
+        .message.user {
+            background-color: #ffebeb;
+            text-align: right;
+        }
+        .message.other {
+            background-color: #e6f2ff;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Suhani,  💕 Happy Birthday Miss  💕</h1>
+        <p>Every moment since I saw you, my heart has held a feeling I cannot ignore.</p>
+        <p>You might not know, but I admire you from afar, cherishing every glimpse, every smile.</p>
+        <p>Maybe today is the perfect moment to say... could we start as friends? 😊</p>
+        <div class="love">❤️</div>
+
+        <button onclick="showChat()">Let's Talk</button>
+
+        <div class="chat-box" id="chatBox"></div>
+        <div class="input-box" id="inputBox">
+            <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC5JlKVhuArr856ufXEh6q2FOtRNLgQ4xM",
+            authDomain: "love-3ea1f.firebaseapp.com",
+            projectId: "love-3ea1f",
+            storageBucket: "love-3ea1f.firebasestorage.app",
+            messagingSenderId: "326531694164",
+            appId: "1:326531694164:web:1c4a88a3c2187139bcb7c1",
+            measurementId: "G-8045X8P87K"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Show the chat box and input box
+        function showChat() {
+            document.getElementById("chatBox").style.display = "block";
+            document.getElementById("inputBox").style.display = "block";
+            loadMessages();
+        }
+
+        // Send message to Firebase
+        function sendMessage() {
+            let messageInput = document.getElementById("messageInput");
+            let message = messageInput.value.trim(); // Use trim() to remove unnecessary spaces
+            if (message !== "") {
+                let timeStamp = new Date().toLocaleString();
+                let newMessage = `<div class="message user"><p><strong>You:</strong> ${message}</p><span>${timeStamp}</span></div>`;
+
+                // Save the message to Firebase
+                database.ref('messages').push({
+                    message: message,
+                    timeStamp: timeStamp
+                })
+                .then(() => {
+                    // After message is successfully saved, show it in the chat box
+                    let chatBox = document.getElementById("chatBox");
+                    chatBox.innerHTML += newMessage;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    messageInput.value = ""; // Clear input field after sending
+                })
+                .catch((error) => {
+                    console.error("Error sending message: ", error);
+                });
+            }
+        }
+
+        // Handle Enter key press to send message
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent default Enter behavior (form submission)
+                sendMessage();
+            }
+        }
+
+        // Load messages from Firebase
+        function loadMessages() {
+            let chatBox = document.getElementById("chatBox");
+            chatBox.innerHTML = ""; // Clear chat box before loading new messages
+            database.ref('messages').on('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    let message = childSnapshot.val().message;
+                    let timeStamp = childSnapshot.val().timeStamp;
+                    let newMessage = `<div class="message other"><p><strong>Someone:</strong> ${message}</p><span>${timeStamp}</span></div>`;
+                    chatBox.innerHTML += newMessage;
+                });
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, (error) => {
+                console.error("Error loading messages: ", error);
+            });
+        }
+    </script>
+</body>
+</html>
