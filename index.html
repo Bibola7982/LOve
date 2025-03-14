@@ -5,50 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Feelings for You, Suhani ❤️</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, rgb(255, 102, 102), rgb(255, 179, 255), rgb(153, 204, 255));
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff66b2, #ffccff, #6699ff);
             color: white;
             padding: 0;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 150vh;
+            height: 100vh;
+            text-align: center;
         }
         .container {
             background: rgba(255, 255, 255, 0.15);
             padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            width: 500px;
+            width: 90%;
+            max-width: 500px;
             text-align: center;
         }
         h1 {
             font-size: 2.5em;
-            color: rgb(255, 230, 230);
+            font-family: 'Pacifico', cursive;
+            color: #ffebf0;
             margin-bottom: 20px;
+            animation: bounce 1.5s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-5px); }
         }
         p {
             font-size: 1.2em;
-            font-style: italic;
             margin-bottom: 20px;
         }
         .love {
             font-size: 3em;
-            color: rgb(255, 51, 102);
+            color: #ff3366;
             animation: glow 1.5s infinite alternate;
         }
         @keyframes glow {
             from { text-shadow: 0 0 10px rgba(255, 51, 102, 0.8); }
             to { text-shadow: 0 0 20px rgba(255, 51, 102, 1); }
         }
+        .emoji {
+            display: inline-block;
+            font-size: 2em;
+            transform: perspective(100px) rotateX(0deg);
+            animation: float 2s infinite alternate ease-in-out;
+        }
+        @keyframes float {
+            from { transform: perspective(100px) rotateX(10deg); }
+            to { transform: perspective(100px) rotateX(-10deg); }
+        }
         button {
             padding: 12px 25px;
             border: none;
-            background: rgb(255, 51, 102);
+            background: #ff3366;
             color: white;
             font-size: 1.1em;
             border-radius: 30px;
@@ -57,21 +75,19 @@
             margin-top: 10px;
         }
         button:hover {
-            background-color: rgb(255, 102, 153);
+            background-color: #ff6699;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>💕🎉 Happy Birthday, Suhani 🎂🎈💕</h1>
-<p>💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. ❤️‍🔥💭</p>
-<p>😊 You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. 🌟💫</p>
-<p>💬 Maybe today is the perfect moment to say... could we start as friends? 🤗🌸</p>
-<p>💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. 🙏✨</p>
-<p>🤍 "If this message bothers you, please don’t tell anyone 🤞—I request this as a favor. And I promise, I won’t message you again 🚫 or disturb you in any way." 💔</p>
-<div class="love">❤️💘💞</div>
-
-        
+        <h1 class="emoji">💕🎉 Happy Birthday, 🎂 Miss Suhani 🎈💕</h1>
+        <p>💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. <span class="emoji">❤️‍🔥💭</span></p>
+        <p>😊 You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. <span class="emoji">🌟💫</span></p>
+        <p>💬 Maybe today is the perfect moment to say... could we start as friends? <span class="emoji">🤗🌸</span></p>
+        <p>💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. <span class="emoji">🙏✨</span></p>
+        <p>🤍 "If this message bothers you, please don’t tell anyone 🤞—I request this as a favor. And I promise, I won’t message you again 🚫 or disturb you in any way." 💔</p>
+        <div class="love">❤️💘💞</div>
         <button onclick="window.location.href='https://www.instagram.com/monty_2626/'">Let's Talk</button>
     </div>
 </body>
