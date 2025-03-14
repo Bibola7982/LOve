@@ -9,59 +9,42 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff66b2, #ffccff, #6699ff);
+            background: linear-gradient(135deg, #ff99cc, #ffcccc, #b3d9ff);
             color: white;
             padding: 0;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 130vh;
             text-align: center;
         }
         .container {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
+            max-width: 90%;
+            width: 500px;
+            animation: fadeIn 2s ease-in;
         }
         h1 {
-            font-size: 2.5em;
             font-family: 'Pacifico', cursive;
-            color: #ffebf0;
-            margin-bottom: 20px;
-            animation: bounce 1.5s infinite alternate;
-        }
-        @keyframes bounce {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-5px); }
+            font-size: 2.5em;
+            color: #fff;
+            animation: bounce 2s infinite;
         }
         p {
             font-size: 1.2em;
+            font-style: italic;
             margin-bottom: 20px;
+            animation: textBlink 3s infinite alternate;
         }
         .love {
             font-size: 3em;
-            color: #ff3366;
-            animation: glow 1.5s infinite alternate;
-        }
-        @keyframes glow {
-            from { text-shadow: 0 0 10px rgba(255, 51, 102, 0.8); }
-            to { text-shadow: 0 0 20px rgba(255, 51, 102, 1); }
-        }
-        .emoji {
-            display: inline-block;
-            font-size: 2em;
-            transform: perspective(100px) rotateX(0deg);
-            animation: float 2s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            from { transform: perspective(100px) rotateX(10deg); }
-            to { transform: perspective(100px) rotateX(-10deg); }
+            color: red;
+            animation: glow 1.5s infinite alternate, floatUpDown 3s ease-in-out infinite;
         }
         button {
             padding: 12px 25px;
@@ -72,20 +55,36 @@
             border-radius: 30px;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 10px;
         }
         button:hover {
             background-color: #ff6699;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 51, 102, 0.8); }
+            to { text-shadow: 0 0 20px rgba(255, 51, 102, 1); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes textBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="emoji">💕🎉 Happy Birthday, 🎂 Miss Suhani 🎈💕</h1>
-        <p>💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. <span class="emoji">❤️‍🔥💭</span></p>
-        <p>😊 You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. <span class="emoji">🌟💫</span></p>
-        <p>💬 Maybe today is the perfect moment to say... could we start as friends? <span class="emoji">🤗🌸</span></p>
-        <p>💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. <span class="emoji">🙏✨</span></p>
+        <h1>💕🎉 Happy Birthday, 🎂 Suhani 🎈💕</h1>
+        <p>💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. ❤️‍🔥💭</p>
+        <p>😊 You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. 🌟💫</p>
+        <p>💬 Maybe today is the perfect moment to say... could we start as friends? 🤗🌸</p>
+        <p>💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. 🙏✨</p>
         <p>🤍 "If this message bothers you, please don’t tell anyone 🤞—I request this as a favor. And I promise, I won’t message you again 🚫 or disturb you in any way." 💔</p>
         <div class="love">❤️💘💞</div>
         <button onclick="window.location.href='https://www.instagram.com/monty_2626/'">Let's Talk</button>
