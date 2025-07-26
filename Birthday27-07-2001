@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bhabhi Maa ❣️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            width: 100%;
+        }
+        
+        @media (max-width: 767px) {
+            body {
+                background-image: url('BHai.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .container {
+                background: rgba(0, 0, 0, 0.6);
+                max-width: 400px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            body {
+                background-image: url('miss.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .container {
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                max-width: 600px;
+                padding: 40px;
+            }
+        }
+        
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff3366;
+            animation: blinkText 1.5s infinite alternate;
+        }
+        p {
+            font-size: 1.1em;
+            animation: glowText 2s infinite alternate;
+        }
+        .love {
+            font-size: 2em;
+            margin: 10px 0;
+            animation: floating 2s infinite ease-in-out;
+        }
+        button {
+            background: #ff3366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            animation: pulse 1.5s infinite;
+        }
+        button:hover {
+            background: #ff6699;
+        }
+        @keyframes blinkText {
+            50% { color: #ff99cc; }
+        }
+        @keyframes glowText {
+            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+            to { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+        }
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕🎉 Happy Birthday Bhabhi Maa 🎂 🎈💕</h1>
+        <p>💖 From the very first moment I saw you, I could tell you were someone special. Your presence fills the house with warmth and positivity. ❤️‍🔥🌟</p>
+        <p>😊 Your strength and grace inspire everyone around you. You are not just a wonderful partner to my brother, but also a guiding light in this family. ✨💫</p>
+        <p>💬 It's beautiful to see how you and bhai complement each other—like two pieces of a puzzle that fit perfectly together. Your togetherness is a perfect example of mutual respect and love. 💞</p>
+        <p>💌 I can see that you both share a bond that is deep, like a tree that grows strong through all seasons. 🌳 It’s not just about the good times, but how you stand by each other during the tough ones too. 🌸</p>
+        <p>🤍 "As your family, we celebrate you both today, knowing that the future holds even more beautiful moments. Bhabhi, may this year bring you even more joy, health, and success." 🙏✨</p>
+
+        <!-- Thoughtful Messages Added -->
+        <p><strong>🙏 कुछ बातें जो हमेशा याद रखनी चाहिए:</strong></p>
+        <ul style="text-align: left; font-size: 1em; padding-left: 25px;">
+            <li>1. आपस में लड़ाई नहीं करनी चाहिए। हमेशा एक-दूसरे का आदर करना चाहिए। 💑</li>
+            <li>2. एक-दूसरे की तारीफ हमेशा खुलकर करें, खासकर दूसरों के सामने। ये रिश्ते को और मजबूत बनाता है। 👏</li>
+            <li>3. अगर कभी किसी बात से असंतुष्ट हों, तो तीसरे व्यक्ति से शेयर करने से पहले, एक-दूसरे से बात करें। यह गलतफहमियां दूर करने में मदद करता है। 💬</li>
+            <li>4. जो भी निजी बातें हों, उन्हें परिवार के बाहर नहीं लाना चाहिए। किसी भी रिश्ते में यह बहुत ज़रूरी है। 🔒</li>
+            <li>5. कभी भी छोटी-छोटी बातों पर चुप रहकर गुस्से को इकट्ठा मत होने दो। बात करके ही हल निकालें। 🗣️</li>
+        </ul>
+
+        <div class="love">❤️💘💞💝❣️</div>
+        <button onclick="window.location.href='https://www.instagram.com/monty_2626/'">Can We Talk? 💌</button>
+    </div>
+</body>
+</html>
