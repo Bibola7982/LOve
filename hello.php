@@ -75,7 +75,7 @@ if (isset($_POST['delete_chat'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" /> 
     
-    <link href="./css/theme.css" rel="stylesheet">
+    <link href="/theme.css" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdn.tiny.cloud/1/zs2i3v7nfmps8tjellrlfujiyezo3iwj51o0l8d1eqy3ppaf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
