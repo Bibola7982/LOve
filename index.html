@@ -1,118 +1,109 @@
+<?php
+require_once '../private/session_manager.php';
+
+$error_message = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
+        $username = trim($_POST['inputUsername']);
+        $password = trim($_POST['inputPassword']);
+
+        $login_status = login($username, $password);
+        if ($login_status === true) {
+            header('Location: hello.php');
+            exit(); // Redirect के बाद exit बहुत ज़रूरी होता है
+        } else {
+            $error_message = "❌ Invalid username or password.";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Suhani ❣️</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>😁😁 Genius 😁😁</title>
+    <link href="./css/theme.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
+        .tall-row {
+            margin-top: 40px;
         }
-        
-        .container {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            width: 100%;
-        }
-        
-        @media (max-width: 767px) {
-            body {
-                background-image: url('miss.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-            .container {
-                background: rgba(0, 0, 0, 0.6);
-                max-width: 400px;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            body {
-                background-image: url('miss.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-            .container {
-                background: rgba(255, 255, 255, 0.2);
-                backdrop-filter: blur(10px);
-                max-width: 600px;
-                padding: 40px;
-            }
-        }
-        
-        h1 {
-            font-family: 'Pacifico', cursive;
-            color: #ff3366;
-            animation: blinkText 1.5s infinite alternate;
-        }
-        p {
-            font-size: 1.1em;
-            animation: glowText 2s infinite alternate;
-        }
-        .love {
-            font-size: 2em;
-            margin: 10px 0;
-            animation: floating 2s infinite ease-in-out;
-        }
-        button {
-            background: #ff3366;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
+        .modal {
+            position: relative;
+            top: auto;
+            right: auto;
+            left: auto;
+            bottom: auto;
+            z-index: 1;
             display: block;
-            width: 100%;
-            margin-top: 15px;
-            animation: pulse 1.5s infinite;
-        }
-        button:hover {
-            background: #ff6699;
-        }
-        @keyframes blinkText {
-            50% { color: #ff99cc; }
-        }
-        @keyframes glowText {
-            from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
-        }
-        @keyframes floating {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>💕🎉 Happy  Birthday 🎂 Suhani 🎈💕</h1>
-        <p>💖 From the moment I first saw you, my heart has been filled with feelings I can’t explain. ❤️‍🔥💭</p>
-        <p>😊 You may not realize it, but I’ve been quietly admiring you from a distance, cherishing every glance 👀, every smile 😊. Seeing your happiness brightens my day in ways I can't describe. 🌟💫</p>
-        <p>💬 Maybe today is the perfect moment to say... could we start as friends? 🤗🌸</p>
-        <p>💌 I hope this note brings a smile to your face 😄. If you feel the same way, I would love to get to know you better. 💕 But if this message makes you uncomfortable, please don’t feel pressured. I respect your feelings. 🙏✨</p>
-        <p>🤍 "If this message bothers you, please don’t tell anyone 🤞—I request this as a favor. And I promise, I won’t message you again 🚫 or disturb you in any way." 💔</p>
-        <div class="love">❤️💘💞💝❣️</div>
-        <button onclick="window.location.href='https://www.instagram.com/monty_2626/'"> Can We Talk ? 💌</button>
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 text-center">
+                <a class="navbar-brand" href="/assets/god.jpg">🙏 Radhe-Radhe 🙏</a>
+            </div>
+        </div>
     </div>
+</nav>
+
+<div class="container">
+    <br><br><br>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                <br><br>
+                <form class="form-horizontal" action="index.php" method="POST" autocomplete="off">
+                    <fieldset>
+                        <legend>💀 Welcome To Legend Life 💀</legend>
+
+                        <?php if (!empty($error_message)) : ?>
+                            <div class="alert alert-danger text-center"><?php echo htmlspecialchars($error_message); ?></div>
+                        <?php endif; ?>
+
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="inputUsername" name="inputUsername" placeholder="Username" type="text" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                            <div class="col-md-6">
+                                <input class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" type="password" required>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type="submit" class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="row tall-row">
+        <div class="col-md-12 text-right">
+            <p>Contact Me => <a href="https://mrgenius416.website3.me/"> Mr Genius Hacker </a>. &copy; 2025</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
