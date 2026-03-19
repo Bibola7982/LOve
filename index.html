@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandeep Yadav | Ultimate Resume</title>
+<title>Mandeep Yadav | Final Resume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -13,77 +13,78 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#667eea,#764ba2);
+  background:#f0f0f0;
 }
 
+/* PERFECT A4 SIZE */
 .container{
-  max-width:1000px;
+  width:794px; /* A4 width */
+  min-height:1123px; /* A4 height */
   margin:20px auto;
   background:#fff;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  padding:20px;
 }
 
 .header{
-  background:#111;
-  color:#fff;
   text-align:center;
-  padding:30px;
+  border-bottom:2px solid #000;
+  padding-bottom:10px;
 }
 
-.header img{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-}
-
-.header h1{margin-top:10px;font-size:28px}
+.header h1{font-size:28px}
 
 .section{
-  padding:20px;
-  border-bottom:1px solid #eee;
+  margin-top:15px;
 }
 
 .section h2{
-  color:#6a4bc4;
-  margin-bottom:10px;
+  font-size:18px;
+  border-bottom:1px solid #000;
+  margin-bottom:8px;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+  display:flex;
+  justify-content:space-between;
 }
 
-ul{padding-left:20px}
-li{margin-bottom:6px}
+.grid div{width:48%}
+
+ul{padding-left:18px}
+li{margin-bottom:5px}
 
 .btn{
   display:block;
   margin:20px auto;
-  padding:12px 25px;
-  background:#6a4bc4;
+  padding:10px 20px;
+  background:#000;
   color:#fff;
   border:none;
-  border-radius:25px;
   cursor:pointer;
 }
 
 /* PRINT FIX */
+@page{
+  size:A4;
+  margin:10mm;
+}
+
 @media print{
   body{background:#fff}
-  .container{box-shadow:none;border-radius:0}
   .btn{display:none}
+  .container{
+    margin:0;
+    width:100%;
+    min-height:auto;
+    box-shadow:none;
+  }
   .section{page-break-inside:avoid}
 }
 
-.page-break{
-  page-break-before:always;
-}
-
-@media(max-width:700px){
-  .grid{grid-template-columns:1fr}
+@media(max-width:800px){
+  .container{width:100%}
+  .grid{flex-direction:column}
+  .grid div{width:100%}
 }
 </style>
 </head>
@@ -93,7 +94,6 @@ li{margin-bottom:6px}
 <div class="container" id="resume">
 
 <div class="header">
-<img src="https://via.placeholder.com/100">
 <h1>Mandeep Yadav</h1>
 <p>📞 8683948560 | 📍 Hansi, Haryana</p>
 </div>
@@ -101,7 +101,7 @@ li{margin-bottom:6px}
 <div class="section">
 <h2>Career Objective</h2>
 <p>
-To build a career in technical and IT field where I can use my skills in computer hardware, software, web development and hospital systems like Ayushman Bharat.
+To build a career in IT and technical field using my skills in hardware, software, web development and hospital systems like Ayushman Bharat.
 </p>
 </div>
 
@@ -111,12 +111,11 @@ To build a career in technical and IT field where I can use my skills in compute
 <ul>
 <li>Computer Hardware Repair</li>
 <li>Mobile Repairing</li>
-<li>HTML & CSS Web Development</li>
-<li>IoT Device Handling</li>
+<li>HTML, CSS</li>
+<li>IoT Devices</li>
 <li>Windows Installation</li>
 <li>Linux Installation</li>
-<li>Basic Networking</li>
-<li>Software Installation</li>
+<li>Networking Basics</li>
 </ul>
 </div>
 
@@ -126,7 +125,7 @@ To build a career in technical and IT field where I can use my skills in compute
 <li>Quick Learner</li>
 <li>Problem Solver</li>
 <li>Hardworking</li>
-<li>Technical Mindset</li>
+<li>Technical Knowledge</li>
 </ul>
 </div>
 </div>
@@ -134,10 +133,9 @@ To build a career in technical and IT field where I can use my skills in compute
 <div class="section">
 <h2>Technical Work</h2>
 <ul>
-<li>Created mobile friendly websites using HTML & CSS</li>
-<li>Designed A4 printable documents</li>
-<li>Debugging and fixing code issues</li>
-<li>UI improvements</li>
+<li>Mobile friendly websites using HTML CSS</li>
+<li>A4 printable layouts</li>
+<li>Debugging and UI fixing</li>
 </ul>
 </div>
 
@@ -147,30 +145,28 @@ To build a career in technical and IT field where I can use my skills in compute
 <li>Patient registration and verification</li>
 <li>Eligibility checking</li>
 <li>Online claim submission</li>
-<li>Document upload and verification</li>
-<li>Pre-authorization process</li>
-<li>Approval tracking</li>
-<li>Claim status monitoring</li>
-<li>Data entry and record management</li>
+<li>Document upload and approval process</li>
+<li>Pre-authorization handling</li>
+<li>Claim tracking and status monitoring</li>
+<li>Data entry and documentation</li>
 <li>Coordination with hospital staff</li>
-<li>Error correction</li>
 </ul>
 </div>
 
 <div class="section">
 <h2>Work Experience</h2>
 <ul>
-<li>Freelance Computer Technician</li>
-<li>Mobile Repairing Work</li>
+<li>Freelance Technician</li>
+<li>Mobile & Laptop Repair</li>
 <li>Website Designing</li>
-<li>Hospital Digital Work</li>
+<li>Hospital Documentation Work</li>
 </ul>
 </div>
 
 <div class="section">
 <h2>Projects</h2>
 <ul>
-<li>Resume Portfolio Website</li>
+<li>Resume Website Portfolio</li>
 <li>Hospital Report Formatting</li>
 <li>Mobile Software Fixing</li>
 </ul>
@@ -185,23 +181,10 @@ To build a career in technical and IT field where I can use my skills in compute
 </div>
 
 <div class="section">
-<h2>Additional Information</h2>
-<ul>
-<li>Basic English Communication</li>
-<li>Hindi Language</li>
-<li>Customer Handling Experience</li>
-<li>Fast Learning Ability</li>
-</ul>
-</div>
-
-<div class="section page-break">
 <h2>Declaration</h2>
 <p>
-I hereby declare that all the information given above is true to the best of my knowledge.
+I hereby declare that all the information is true.
 </p>
-<br>
-<p>Date: __________</p>
-<p>Signature: __________</p>
 </div>
 
 </div>
@@ -213,10 +196,10 @@ function downloadPDF(){
   const element=document.getElementById('resume');
 
   html2pdf().set({
-    margin:0.4,
+    margin:0,
     filename:'Mandeep_Yadav_Resume.pdf',
     html2canvas:{scale:2},
-    jsPDF:{unit:'in',format:'a4'}
+    jsPDF:{unit:'mm',format:'a4'}
   }).from(element).save();
 }
 </script>
