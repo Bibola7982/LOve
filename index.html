@@ -12,11 +12,10 @@
 body{
   font-family:'Poppins',sans-serif;
   background:linear-gradient(135deg,#667eea,#764ba2);
-  color:#333;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:30px auto;
   background:#fff;
   border-radius:15px;
@@ -26,13 +25,13 @@ body{
 }
 
 .header{
-  background:#222;
+  background:#111;
   color:#fff;
   text-align:center;
-  padding:30px 20px;
+  padding:40px 20px;
 }
 
-.header h1{font-size:32px}
+.header h1{font-size:34px}
 .header p{margin-top:10px;font-size:14px}
 
 .section{
@@ -44,6 +43,12 @@ body{
 .section h2{
   color:#764ba2;
   margin-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
 ul{padding-left:20px}
@@ -67,23 +72,37 @@ li{margin-bottom:6px}
   transform:scale(1.05);
 }
 
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
+.toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  cursor:pointer;
 }
 
-@keyframes slideUp{
-  from{transform:translateY(30px);opacity:0}
-  to{transform:translateY(0);opacity:1}
+.dark{
+  background:#111;
+  color:#eee;
 }
 
-@media(max-width:600px){
-  .header h1{font-size:24px}
+.dark .container{background:#1e1e1e}
+.dark .section{border-color:#333}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
+
+<div class="toggle" onclick="toggleMode()">🌙</div>
 
 <div class="container" id="resume">
 
@@ -94,38 +113,50 @@ li{margin-bottom:6px}
 
   <div class="section">
     <h2>Career Objective</h2>
-    <p>To work in a technical field where I can apply my skills in computer hardware, basic coding, IoT devices, and hospital-related digital work to solve real-world problems and grow professionally.</p>
+    <p>To work in a technical field where I can apply my skills in computer hardware, coding, IoT devices, and hospital digital work.</p>
   </div>
 
-  <div class="section">
-    <h2>Skills</h2>
-    <ul>
-      <li>Computer Hardware Repair & Troubleshooting</li>
-      <li>Mobile Repairing (Android Software & Hardware)</li>
-      <li>HTML, CSS Web Development</li>
-      <li>IoT Devices Setup & Handling</li>
-      <li>Software Installation & System Setup</li>
-      <li>Basic Networking Knowledge</li>
-    </ul>
+  <div class="section grid">
+
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li>Computer Hardware Repair</li>
+        <li>Mobile Repairing (Android)</li>
+        <li>HTML, CSS Web Development</li>
+        <li>IoT Devices Handling</li>
+        <li>Windows & Linux Installation</li>
+        <li>Basic Networking</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Strengths</h2>
+      <ul>
+        <li>Practical Knowledge</li>
+        <li>Quick Learner</li>
+        <li>Problem Solver</li>
+        <li>Hardworking</li>
+      </ul>
+    </div>
+
   </div>
 
   <div class="section">
     <h2>Technical & Coding Work</h2>
     <ul>
-      <li>Mobile-friendly HTML & CSS webpages</li>
+      <li>Mobile-friendly webpages (HTML, CSS)</li>
       <li>A4 printable document layouts</li>
-      <li>UI design & improvements</li>
-      <li>Basic debugging & code editing</li>
+      <li>UI improvements & debugging</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>Hospital / Medical Work</h2>
+    <h2>Hospital Work</h2>
     <ul>
-      <li>Medical report formatting (TXT & printable)</li>
+      <li>Medical report formatting</li>
       <li>Discharge summary editing</li>
-      <li>Bed rest certificates creation</li>
-      <li>Patient documentation handling</li>
+      <li>Bed rest certificates</li>
     </ul>
   </div>
 
@@ -133,25 +164,17 @@ li{margin-bottom:6px}
     <h2>Work Experience</h2>
     <ul>
       <li>Freelance Technician</li>
-      <li>Mobile & Laptop Repairing</li>
-      <li>Website Designing & Editing</li>
-      <li>Hospital digital documentation work</li>
+      <li>Mobile & Laptop Repair</li>
+      <li>Website Designing</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>Education</h2>
-    <p>10th / 12th (Add your school details)<br>Technical Learning (Self-learned)</p>
-  </div>
-
-  <div class="section">
-    <h2>Strengths</h2>
-    <ul>
-      <li>Practical Knowledge</li>
-      <li>Quick Learner</li>
-      <li>Problem Solver</li>
-      <li>Hardworking</li>
-    </ul>
+    <p>
+      10th - HBSE, Govt. Sr. Sec. School Rampura<br>
+      12th - HBSE (Non-Medical + Medical), Saraswati Sr. Sec. School Milakpur
+    </p>
   </div>
 
 </div>
@@ -159,15 +182,18 @@ li{margin-bottom:6px}
 <button class="btn" onclick="downloadPDF()">⬇ Download Resume PDF</button>
 
 <script>
-function downloadPDF() {
-  const element = document.getElementById('resume');
+function downloadPDF(){
+  const element=document.getElementById('resume');
   html2pdf().set({
-    margin: 0.5,
-    filename: 'Mandeep_Yadav_Resume.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    margin:0.5,
+    filename:'Mandeep_Yadav_Resume.pdf',
+    html2canvas:{scale:2},
+    jsPDF:{unit:'in',format:'a4'}
   }).from(element).save();
+}
+
+function toggleMode(){
+  document.body.classList.toggle('dark');
 }
 </script>
 
