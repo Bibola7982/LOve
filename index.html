@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandeep Yadav | Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#333;
+}
+
+.container{
+  max-width:1000px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  animation:fadeIn 1s ease-in-out;
+}
+
+.header{
+  background:#222;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
+}
+
+.header h1{font-size:32px}
+.header p{margin-top:10px;font-size:14px}
+
+.section{
+  padding:20px;
+  border-bottom:1px solid #eee;
+  animation:slideUp 0.8s ease;
+}
+
+.section h2{
+  color:#764ba2;
+  margin-bottom:10px;
+}
+
+ul{padding-left:20px}
+li{margin-bottom:6px}
+
+.btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 25px;
+  background:#764ba2;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#5a3c9c;
+  transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+@media(max-width:600px){
+  .header h1{font-size:24px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="resume">
+
+  <div class="header">
+    <h1>Mandeep Yadav</h1>
+    <p>📞 8683948560 | 📍 Hansi, Haryana</p>
+  </div>
+
+  <div class="section">
+    <h2>Career Objective</h2>
+    <p>To work in a technical field where I can apply my skills in computer hardware, basic coding, IoT devices, and hospital-related digital work to solve real-world problems and grow professionally.</p>
+  </div>
+
+  <div class="section">
+    <h2>Skills</h2>
+    <ul>
+      <li>Computer Hardware Repair & Troubleshooting</li>
+      <li>Mobile Repairing (Android Software & Hardware)</li>
+      <li>HTML, CSS Web Development</li>
+      <li>IoT Devices Setup & Handling</li>
+      <li>Software Installation & System Setup</li>
+      <li>Basic Networking Knowledge</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Technical & Coding Work</h2>
+    <ul>
+      <li>Mobile-friendly HTML & CSS webpages</li>
+      <li>A4 printable document layouts</li>
+      <li>UI design & improvements</li>
+      <li>Basic debugging & code editing</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Hospital / Medical Work</h2>
+    <ul>
+      <li>Medical report formatting (TXT & printable)</li>
+      <li>Discharge summary editing</li>
+      <li>Bed rest certificates creation</li>
+      <li>Patient documentation handling</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <ul>
+      <li>Freelance Technician</li>
+      <li>Mobile & Laptop Repairing</li>
+      <li>Website Designing & Editing</li>
+      <li>Hospital digital documentation work</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p>10th / 12th (Add your school details)<br>Technical Learning (Self-learned)</p>
+  </div>
+
+  <div class="section">
+    <h2>Strengths</h2>
+    <ul>
+      <li>Practical Knowledge</li>
+      <li>Quick Learner</li>
+      <li>Problem Solver</li>
+      <li>Hardworking</li>
+    </ul>
+  </div>
+
+</div>
+
+<button class="btn" onclick="downloadPDF()">⬇ Download Resume PDF</button>
+
+<script>
+function downloadPDF() {
+  const element = document.getElementById('resume');
+  html2pdf().set({
+    margin: 0.5,
+    filename: 'Mandeep_Yadav_Resume.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  }).from(element).save();
+}
+</script>
+
+</body>
+</html>
