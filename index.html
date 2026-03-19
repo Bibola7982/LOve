@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandeep Yadav | Final Resume</title>
+<title>Mandeep Yadav | Perfect Resume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -13,16 +13,16 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#f0f0f0;
+  background:#eaeaea;
 }
 
-/* PERFECT A4 SIZE */
+/* PERFECT CENTERED A4 */
 .container{
-  width:794px; /* A4 width */
-  min-height:1123px; /* A4 height */
+  width:210mm;
+  min-height:297mm;
   margin:20px auto;
   background:#fff;
-  padding:20px;
+  padding:15mm;
 }
 
 .header{
@@ -31,16 +31,14 @@ body{
   padding-bottom:10px;
 }
 
-.header h1{font-size:28px}
+.header h1{font-size:26px}
 
-.section{
-  margin-top:15px;
-}
+.section{margin-top:12px}
 
 .section h2{
-  font-size:18px;
+  font-size:16px;
   border-bottom:1px solid #000;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .grid{
@@ -51,7 +49,7 @@ body{
 .grid div{width:48%}
 
 ul{padding-left:18px}
-li{margin-bottom:5px}
+li{margin-bottom:4px}
 
 .btn{
   display:block;
@@ -63,26 +61,36 @@ li{margin-bottom:5px}
   cursor:pointer;
 }
 
-/* PRINT FIX */
+/* PRINT PERFECT FIX */
 @page{
   size:A4;
-  margin:10mm;
+  margin:0;
 }
 
 @media print{
-  body{background:#fff}
-  .btn{display:none}
+  body{
+    background:#fff;
+  }
+
   .container{
     margin:0;
-    width:100%;
-    min-height:auto;
+    width:210mm;
+    height:297mm;
     box-shadow:none;
+    page-break-after:always;
   }
-  .section{page-break-inside:avoid}
+
+  .btn{
+    display:none;
+  }
+
+  .section{
+    page-break-inside:avoid;
+  }
 }
 
 @media(max-width:800px){
-  .container{width:100%}
+  .container{width:100%;padding:10px}
   .grid{flex-direction:column}
   .grid div{width:100%}
 }
@@ -133,58 +141,33 @@ To build a career in IT and technical field using my skills in hardware, softwar
 <div class="section">
 <h2>Technical Work</h2>
 <ul>
-<li>Mobile friendly websites using HTML CSS</li>
+<li>Created mobile friendly websites</li>
 <li>A4 printable layouts</li>
-<li>Debugging and UI fixing</li>
+<li>Debugging & fixing issues</li>
 </ul>
 </div>
 
 <div class="section">
-<h2>Hospital Experience (Ayushman Bharat - PMJAY)</h2>
+<h2>Hospital Experience (Ayushman Bharat)</h2>
 <ul>
-<li>Patient registration and verification</li>
-<li>Eligibility checking</li>
-<li>Online claim submission</li>
-<li>Document upload and approval process</li>
-<li>Pre-authorization handling</li>
-<li>Claim tracking and status monitoring</li>
-<li>Data entry and documentation</li>
-<li>Coordination with hospital staff</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Work Experience</h2>
-<ul>
-<li>Freelance Technician</li>
-<li>Mobile & Laptop Repair</li>
-<li>Website Designing</li>
-<li>Hospital Documentation Work</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Projects</h2>
-<ul>
-<li>Resume Website Portfolio</li>
-<li>Hospital Report Formatting</li>
-<li>Mobile Software Fixing</li>
+<li>Patient verification</li>
+<li>Claim submission</li>
+<li>Approval tracking</li>
+<li>Data entry & documentation</li>
 </ul>
 </div>
 
 <div class="section">
 <h2>Education</h2>
 <p>
-10th - HBSE Govt Sr Sec School Rampura<br>
-12th - HBSE Saraswati Sr Sec School Milakpur
+10th - HBSE Govt School Rampura<br>
+12th - HBSE Saraswati School Milakpur
 </p>
 </div>
 
 <div class="section">
 <h2>Declaration</h2>
-<p>
-I hereby declare that all the information is true.
-</p>
+<p>I declare all details are correct.</p>
 </div>
 
 </div>
@@ -195,12 +178,14 @@ I hereby declare that all the information is true.
 function downloadPDF(){
   const element=document.getElementById('resume');
 
-  html2pdf().set({
+  const opt={
     margin:0,
     filename:'Mandeep_Yadav_Resume.pdf',
-    html2canvas:{scale:2},
-    jsPDF:{unit:'mm',format:'a4'}
-  }).from(element).save();
+    html2canvas:{scale:2,scrollY:0},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  };
+
+  html2pdf().set(opt).from(element).save();
 }
 </script>
 
