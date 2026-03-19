@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandeep Yadav | Perfect Resume</title>
+<title>Mandeep Yadav | Resume</title>
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- PDF Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
@@ -13,179 +16,209 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#eaeaea;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  transition:0.3s;
 }
 
-/* PERFECT CENTERED A4 */
 .container{
-  width:210mm;
-  min-height:297mm;
-  margin:20px auto;
+  max-width:1100px;
+  margin:30px auto;
   background:#fff;
-  padding:15mm;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  animation:fadeIn 1s ease-in-out;
 }
 
 .header{
+  background:#111;
+  color:#fff;
   text-align:center;
-  border-bottom:2px solid #000;
-  padding-bottom:10px;
+  padding:40px 20px;
 }
 
-.header h1{font-size:26px}
+.header h1{font-size:34px}
+.header p{margin-top:10px;font-size:14px}
 
-.section{margin-top:12px}
+.section{
+  padding:20px;
+  border-bottom:1px solid #eee;
+  animation:slideUp 0.8s ease;
+}
 
 .section h2{
-  font-size:16px;
-  border-bottom:1px solid #000;
-  margin-bottom:6px;
+  color:#764ba2;
+  margin-bottom:10px;
 }
 
 .grid{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
-.grid div{width:48%}
-
-ul{padding-left:18px}
-li{margin-bottom:4px}
+ul{padding-left:20px}
+li{margin-bottom:6px}
 
 .btn{
   display:block;
-  margin:20px auto;
-  padding:10px 20px;
-  background:#000;
+  margin:25px auto;
+  padding:12px 25px;
+  background:#764ba2;
   color:#fff;
   border:none;
+  border-radius:30px;
   cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
 }
 
-/* PRINT PERFECT FIX */
-@page{
-  size:A4;
-  margin:0;
+.btn:hover{
+  background:#5a3c9c;
+  transform:scale(1.05);
 }
 
-@media print{
-  body{
-    background:#fff;
-  }
-
-  .container{
-    margin:0;
-    width:210mm;
-    height:297mm;
-    box-shadow:none;
-    page-break-after:always;
-  }
-
-  .btn{
-    display:none;
-  }
-
-  .section{
-    page-break-inside:avoid;
-  }
+.toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 12px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
 }
 
-@media(max-width:800px){
-  .container{width:100%;padding:10px}
-  .grid{flex-direction:column}
-  .grid div{width:100%}
+.dark{
+  background:#111;
+  color:#eee;
+}
+
+.dark .container{background:#1e1e1e}
+.dark .section{border-color:#333}
+.dark .header{background:#000}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Dark Mode Toggle -->
+<div class="toggle" onclick="toggleMode()">🌙</div>
+
 <div class="container" id="resume">
 
-<div class="header">
-<h1>Mandeep Yadav</h1>
-<p>📞 8683948560 | 📍 Hansi, Haryana</p>
+  <div class="header">
+    <h1>Mandeep Yadav</h1>
+    <p>📞 8683948560 | 📍 Hansi, Haryana</p>
+  </div>
+
+  <div class="section">
+    <h2>Career Objective</h2>
+    <p>
+      To work in a technical field where I can apply my skills in computer hardware, coding, IoT devices, and hospital digital systems to solve real-world problems and grow professionally.
+    </p>
+  </div>
+
+  <div class="section grid">
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li>Computer Hardware Repair & Troubleshooting</li>
+        <li>Mobile Repairing (Android)</li>
+        <li>HTML, CSS Web Development</li>
+        <li>IoT Devices Handling</li>
+        <li>Windows & Linux Installation</li>
+        <li>Basic Networking</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Strengths</h2>
+      <ul>
+        <li>Practical Knowledge</li>
+        <li>Quick Learner</li>
+        <li>Problem Solver</li>
+        <li>Hardworking</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Technical & Coding Work</h2>
+    <ul>
+      <li>Mobile-friendly webpages (HTML, CSS)</li>
+      <li>A4 printable document layouts</li>
+      <li>UI improvements & debugging</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Hospital Work (Ayushman Bharat - PMJAY)</h2>
+    <ul>
+      <li>Worked on Ayushman Bharat Portal</li>
+      <li>Patient registration & eligibility verification</li>
+      <li>Online claim submission & document upload</li>
+      <li>Pre-authorization request handling</li>
+      <li>Claim approval tracking & status monitoring</li>
+      <li>Data entry & patient record management</li>
+      <li>Coordination with hospital staff</li>
+      <li>Error fixing & document formatting</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <ul>
+      <li>Freelance Technician</li>
+      <li>Mobile & Laptop Repair</li>
+      <li>Website Designing & Editing</li>
+      <li>Hospital Digital Documentation Work</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p>
+      10th - HBSE, Govt. Sr. Sec. School Rampura<br>
+      12th - HBSE (Non-Medical + Medical), Saraswati Sr. Sec. School Milakpur
+    </p>
+  </div>
+
 </div>
 
-<div class="section">
-<h2>Career Objective</h2>
-<p>
-To build a career in IT and technical field using my skills in hardware, software, web development and hospital systems like Ayushman Bharat.
-</p>
-</div>
-
-<div class="section grid">
-<div>
-<h2>Skills</h2>
-<ul>
-<li>Computer Hardware Repair</li>
-<li>Mobile Repairing</li>
-<li>HTML, CSS</li>
-<li>IoT Devices</li>
-<li>Windows Installation</li>
-<li>Linux Installation</li>
-<li>Networking Basics</li>
-</ul>
-</div>
-
-<div>
-<h2>Strengths</h2>
-<ul>
-<li>Quick Learner</li>
-<li>Problem Solver</li>
-<li>Hardworking</li>
-<li>Technical Knowledge</li>
-</ul>
-</div>
-</div>
-
-<div class="section">
-<h2>Technical Work</h2>
-<ul>
-<li>Created mobile friendly websites</li>
-<li>A4 printable layouts</li>
-<li>Debugging & fixing issues</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Hospital Experience (Ayushman Bharat)</h2>
-<ul>
-<li>Patient verification</li>
-<li>Claim submission</li>
-<li>Approval tracking</li>
-<li>Data entry & documentation</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Education</h2>
-<p>
-10th - HBSE Govt School Rampura<br>
-12th - HBSE Saraswati School Milakpur
-</p>
-</div>
-
-<div class="section">
-<h2>Declaration</h2>
-<p>I declare all details are correct.</p>
-</div>
-
-</div>
-
-<button class="btn" onclick="downloadPDF()">Download PDF</button>
+<!-- Download Button -->
+<button class="btn" onclick="downloadPDF()">⬇ Download Resume PDF</button>
 
 <script>
 function downloadPDF(){
-  const element=document.getElementById('resume');
+  const element = document.getElementById('resume');
 
-  const opt={
-    margin:0,
+  html2pdf().set({
+    margin:0.5,
     filename:'Mandeep_Yadav_Resume.pdf',
-    html2canvas:{scale:2,scrollY:0},
-    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
-  };
+    image:{ type:'jpeg', quality:0.98 },
+    html2canvas:{ scale:2 },
+    jsPDF:{ unit:'in', format:'a4', orientation:'portrait' }
+  }).from(element).save();
+}
 
-  html2pdf().set(opt).from(element).save();
+function toggleMode(){
+  document.body.classList.toggle('dark');
 }
 </script>
 
