@@ -3,159 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandeep Yadav | Portfolio Resume</title>
+<title>Mandeep Yadav | Ultimate Resume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);transition:0.3s}
 
-.container{max-width:1100px;margin:30px auto;background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+}
 
-.header{text-align:center;background:#111;color:#fff;padding:40px 20px}
-.header img{width:100px;height:100px;border-radius:50%;margin-bottom:10px}
-.header h1{font-size:32px}
+.container{
+  max-width:1000px;
+  margin:20px auto;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
 
-.typing{font-size:16px;color:#ccc;height:20px}
+.header{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+}
 
-.section{padding:20px;border-bottom:1px solid #eee}
-.section h2{color:#764ba2;margin-bottom:10px}
+.header img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+}
 
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.header h1{margin-top:10px;font-size:28px}
+
+.section{
+  padding:20px;
+  border-bottom:1px solid #eee;
+}
+
+.section h2{
+  color:#6a4bc4;
+  margin-bottom:10px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
 
 ul{padding-left:20px}
 li{margin-bottom:6px}
 
-.btn{display:block;margin:20px auto;padding:12px 25px;background:#764ba2;color:#fff;border:none;border-radius:30px;cursor:pointer}
-.btn:hover{background:#5a3c9c}
-
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
+.btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 25px;
+  background:#6a4bc4;
   color:#fff;
-  padding:12px 15px;
-  border-radius:50%;
-  font-size:20px;
+  border:none;
+  border-radius:25px;
   cursor:pointer;
 }
 
-.toggle{position:fixed;top:20px;right:20px;background:#000;color:#fff;padding:10px;border-radius:50%;cursor:pointer}
+/* PRINT FIX */
+@media print{
+  body{background:#fff}
+  .container{box-shadow:none;border-radius:0}
+  .btn{display:none}
+  .section{page-break-inside:avoid}
+}
 
-.dark{background:#111;color:#eee}
-.dark .container{background:#1e1e1e}
-.dark .section{border-color:#333}
+.page-break{
+  page-break-before:always;
+}
 
-.print-mode body{background:#fff}
-.print-mode .container{box-shadow:none;border-radius:0}
-.print-mode .btn,.print-mode .toggle,.print-mode .whatsapp{display:none}
-
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleMode()">🌙</div>
-
 <div class="container" id="resume">
 
-  <div class="header">
-    <img src="https://via.placeholder.com/100" alt="profile">
-    <h1>Mandeep Yadav</h1>
-    <div class="typing" id="typing"></div>
-    <p>📞 8683948560 | 📍 Hansi, Haryana</p>
-  </div>
+<div class="header">
+<img src="https://via.placeholder.com/100">
+<h1>Mandeep Yadav</h1>
+<p>📞 8683948560 | 📍 Hansi, Haryana</p>
+</div>
 
-  <div class="section">
-    <h2>Career Objective</h2>
-    <p>To work in a technical field where I can apply my skills in computer hardware, coding, IoT devices, and hospital systems.</p>
-  </div>
+<div class="section">
+<h2>Career Objective</h2>
+<p>
+To build a career in technical and IT field where I can use my skills in computer hardware, software, web development and hospital systems like Ayushman Bharat.
+</p>
+</div>
 
-  <div class="section grid">
-    <div>
-      <h2>Skills</h2>
-      <ul>
-        <li>Computer Hardware Repair</li>
-        <li>Mobile Repairing</li>
-        <li>HTML, CSS</li>
-        <li>IoT Devices</li>
-        <li>Windows & Linux Installation</li>
-      </ul>
-    </div>
+<div class="section grid">
+<div>
+<h2>Skills</h2>
+<ul>
+<li>Computer Hardware Repair</li>
+<li>Mobile Repairing</li>
+<li>HTML & CSS Web Development</li>
+<li>IoT Device Handling</li>
+<li>Windows Installation</li>
+<li>Linux Installation</li>
+<li>Basic Networking</li>
+<li>Software Installation</li>
+</ul>
+</div>
 
-    <div>
-      <h2>Strengths</h2>
-      <ul>
-        <li>Quick Learner</li>
-        <li>Problem Solver</li>
-        <li>Hardworking</li>
-      </ul>
-    </div>
-  </div>
+<div>
+<h2>Strengths</h2>
+<ul>
+<li>Quick Learner</li>
+<li>Problem Solver</li>
+<li>Hardworking</li>
+<li>Technical Mindset</li>
+</ul>
+</div>
+</div>
 
-  <div class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li>Resume Website (This Portfolio)</li>
-      <li>Hospital Report Formatting System</li>
-      <li>Mobile Repair & Software Fixing Work</li>
-    </ul>
-  </div>
+<div class="section">
+<h2>Technical Work</h2>
+<ul>
+<li>Created mobile friendly websites using HTML & CSS</li>
+<li>Designed A4 printable documents</li>
+<li>Debugging and fixing code issues</li>
+<li>UI improvements</li>
+</ul>
+</div>
 
-  <div class="section">
-    <h2>Hospital Work (Ayushman Bharat - PMJAY)</h2>
-    <ul>
-      <li>Patient verification & eligibility check</li>
-      <li>Online claim submission</li>
-      <li>Pre-authorization handling</li>
-      <li>Approval tracking</li>
-      <li>Data entry & documentation</li>
-    </ul>
-  </div>
+<div class="section">
+<h2>Hospital Experience (Ayushman Bharat - PMJAY)</h2>
+<ul>
+<li>Patient registration and verification</li>
+<li>Eligibility checking</li>
+<li>Online claim submission</li>
+<li>Document upload and verification</li>
+<li>Pre-authorization process</li>
+<li>Approval tracking</li>
+<li>Claim status monitoring</li>
+<li>Data entry and record management</li>
+<li>Coordination with hospital staff</li>
+<li>Error correction</li>
+</ul>
+</div>
 
-  <div class="section">
-    <h2>Education</h2>
-    <p>
-      10th - HBSE Govt. Sr. Sec. School Rampura<br>
-      12th - HBSE Saraswati Sr. Sec. School Milakpur
-    </p>
-  </div>
+<div class="section">
+<h2>Work Experience</h2>
+<ul>
+<li>Freelance Computer Technician</li>
+<li>Mobile Repairing Work</li>
+<li>Website Designing</li>
+<li>Hospital Digital Work</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Projects</h2>
+<ul>
+<li>Resume Portfolio Website</li>
+<li>Hospital Report Formatting</li>
+<li>Mobile Software Fixing</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Education</h2>
+<p>
+10th - HBSE Govt Sr Sec School Rampura<br>
+12th - HBSE Saraswati Sr Sec School Milakpur
+</p>
+</div>
+
+<div class="section">
+<h2>Additional Information</h2>
+<ul>
+<li>Basic English Communication</li>
+<li>Hindi Language</li>
+<li>Customer Handling Experience</li>
+<li>Fast Learning Ability</li>
+</ul>
+</div>
+
+<div class="section page-break">
+<h2>Declaration</h2>
+<p>
+I hereby declare that all the information given above is true to the best of my knowledge.
+</p>
+<br>
+<p>Date: __________</p>
+<p>Signature: __________</p>
+</div>
 
 </div>
 
-<button class="btn" onclick="downloadPDF()">⬇ Download Resume PDF</button>
-
-<div class="whatsapp" onclick="contact()">💬</div>
+<button class="btn" onclick="downloadPDF()">Download PDF</button>
 
 <script>
-// typing effect
-const text="Computer Technician | Web Developer | Ayushman Bharat Operator";
-let i=0;
-function typing(){
-  if(i<text.length){
-    document.getElementById('typing').innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(typing,50);
-  }
-}
-typing();
-
 function downloadPDF(){
-  document.body.classList.add('print-mode');
   const element=document.getElementById('resume');
-  html2pdf().set({margin:0.3,filename:'Mandeep_Yadav_Resume.pdf',html2canvas:{scale:3},jsPDF:{unit:'in',format:'a4'}}).from(element).save().then(()=>{
-    document.body.classList.remove('print-mode');
-  });
-}
 
-function toggleMode(){document.body.classList.toggle('dark');}
-
-function contact(){
-  window.open('https://wa.me/918683948560','_blank');
+  html2pdf().set({
+    margin:0.4,
+    filename:'Mandeep_Yadav_Resume.pdf',
+    html2canvas:{scale:2},
+    jsPDF:{unit:'in',format:'a4'}
+  }).from(element).save();
 }
 </script>
 
